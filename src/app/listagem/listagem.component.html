@@ -1,0 +1,40 @@
+<header>
+</header>
+  
+  <main role="main">
+    <section class="my-4">
+        <div class="container">
+            <h2>Indice de Pobreza</h2>
+        </div>
+      </section>
+
+    <section class="mt-5">
+      <div class="container">
+        
+        <div class="form-group">
+            <label>Paises (Selecione um pais para carregar o grid)</label>
+            <select class="form-control" type="string" [(ngModel)]="paisSelecionado" (ngModelChange)="onSelected()">
+              <option *ngFor="let pais of paises" [ngValue]="pais.iso2Code">{{ pais.iso2Code }} - {{ pais.name }}</option>
+            </select>
+          </div>
+
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead class="thead-light text-center">
+              <tr>
+                <th class="w-50">Ano</th>
+                <th class="w-25">Valor</th>
+              </tr>
+            </thead>
+  
+            <tbody>
+              <tr *ngFor="let contato of list">  
+                <td>{{contato.date}}</td>
+                <td>{{contato.value | currency }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
